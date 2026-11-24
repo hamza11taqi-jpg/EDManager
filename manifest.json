@@ -2,8 +2,8 @@
   "name": "EDmanager",
   "short_name": "EDmanager",
   "description": "تطبيق إدارة الحضور",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/EDManager/",
+"scope": "/EDManager/"
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1e3a8a",
