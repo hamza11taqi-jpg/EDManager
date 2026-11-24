@@ -1,0 +1,9 @@
+EDManager v23.5 — Professional Caisse & Gestion UI
+
+Visual-only update for the Caisse and Gestion workspaces:
+- Consistent deep-navy / electric-blue visual language aligned with the EDManager identity.
+- More prominent filled-style navigation icons and clearer section hierarchy.
+- Premium summary cards, tabs, operation rows, form fields, buttons and management category tiles.
+- Improved typography, spacing, contrast, focus states, hover states and responsive layouts.
+
+No database schema, Supabase RPC, business logic, permissions, data model, or calculation logic was intentionally changed.

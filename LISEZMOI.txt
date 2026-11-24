@@ -1,0 +1,49 @@
+EDManager v23.1 — Correctif de sélection des employés
+
+EDManager v22.7 - Déploiement
+
+IMPORTANT : cette version contient un seul fichier de migration canonique :
+- SUPABASE-MIGRATION.sql (à la racine du ZIP)
+- Une copie identique se trouve dans pointage-pwa/SUPABASE-MIGRATION.sql
+
+1) Sauvegarder le projet Supabase et les fichiers actuellement publiés.
+2) Ouvrir Supabase > SQL Editor.
+3) Ouvrir le fichier SUPABASE-MIGRATION.sql fourni dans le ZIP et exécuter son contenu complet UNE SEULE FOIS.
+4) Vérifier que le résultat est Success.
+5) La migration crée explicitement public.employee_picker_list() sans paramètres, accorde EXECUTE à authenticated et demande le rechargement du cache PostgREST.
+6) Publier ensuite le contenu du dossier pointage-pwa en remplaçant les fichiers de l'application existante, en conservant la même URL.
+7) Fermer complètement l'application puis la rouvrir afin que le Service Worker v23.1 charge les nouveaux fichiers.
+
+Important :
+- Remplacer les fichiers de l'application ne crée PAS les fonctions SQL dans Supabase.
+- Une application PWA ne peut pas exécuter automatiquement du DDL SQL avec la clé publique anon.
+- Si l'erreur HTTP 404 persiste après l'exécution SQL, vérifier dans Supabase Database > Functions que public.employee_picker_list existe avec zéro argument, puis envoyer le résultat complet.
+- Ne pas exécuter d'anciens fichiers de migration v22.4/v22.5/v22.6 au hasard.
+- La migration est additive et conserve les données, mais sauvegarder avant toute modification reste obligatoire.
+
+Permissions conservées :
+- pt : gestion complète des présences/absences.
+- pt_view : consultation des historiques.
+- pt_record : enregistrement uniquement.
+- ac : gestion complète des acomptes.
+- ac_view : consultation des montants et historiques.
+- ac_record : enregistrement uniquement.
+
+
+VERSION 22.9 — FALCON RESPONSIVE UI
+Mise a jour visuelle uniquement : interface bureau plus compacte, alignement des icones, connexion mobile avec panneau de marque adapte, et motifs blancs abstraits inspires du mouvement des ailes du faucon. Aucune migration SQL supplementaire requise.
+
+EDManager v23.1 — Mise à jour de la caisse
+- Total théorique = versements camion (hors MEX) + Passager.
+- Total = Total théorique + Décharge (y compris les opérations Prévendeur historiques) + MEX + Des acomptes caisse.
+- Prévendeur est désormais saisi depuis l'onglet unique Décharge, avec recherche parmi les employés.
+- Des acomptes caisse est un module distinct de l'ancien Acomptes des salaires et utilise une table Supabase séparée.
+- Avant de publier cette version, exécuter une seule fois SUPABASE-MIGRATION-CASH-ADVANCES.sql dans Supabase SQL Editor.
+- Ne pas rejouer la migration v22.7 si elle a déjà été exécutée.
+
+
+Correctif v23.1 :
+- Remplacement des listes select natives des employés par une recherche tactile avec résultats cliquables et confirmation explicite du salarié choisi.
+- Appliqué aux formulaires Prévendeur et Des acomptes.
+- Aucun changement de schéma Supabase dans ce correctif ; conserver les migrations déjà appliquées.
+- Le correctif ne prétend pas résoudre les autres problèmes RPC/Passager/Excédents qui nécessitent une migration SQL et des vérifications supplémentaires.

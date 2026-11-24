@@ -1,0 +1,5 @@
+EDManager v23.8.2 — Restore stable base
+
+This recovery package restores the exact v23.7 application interface and behavior, which the user confirmed was working.
+No visual redesign is included in this recovery release. The only technical change is a fresh Service Worker cache namespace.
+No Supabase schema, data, permissions, or business logic changes.

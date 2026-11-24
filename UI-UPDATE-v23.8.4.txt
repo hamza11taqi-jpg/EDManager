@@ -1,0 +1,7 @@
+EDManager v23.8.4 — Desktop Login Footer Layout Fix
+
+- Fixed login page layout so the footer is placed in a dedicated bottom row rather than overlapping the login panel.
+- Compact desktop login content to fit common computer viewport heights.
+- Kept the three footer labels aligned left / center / right within the footer strip.
+- Desktop-only CSS changes; no application JavaScript, Supabase configuration, permissions, database schema, or business logic changed.
+- Mobile styles and layout are unchanged.

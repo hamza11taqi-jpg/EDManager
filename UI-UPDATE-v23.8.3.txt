@@ -1,0 +1,16 @@
+EDManager v23.8.3 — Interface ordinateur fixe et compacte
+
+Base : EDManager v23.8.2, construite sur la version v23.7 confirmée fonctionnelle par l'utilisateur.
+
+Changements visuels ordinateur uniquement (écrans >= 900 px) :
+- Barre latérale fixe et compacte, avec défilement indépendant si nécessaire.
+- Barre supérieure fixe.
+- Zone de contenu indépendante avec défilement interne : le cadre de l'application ne bouge plus.
+- Pied de page réduit et fixé en bas, sans recouvrir le contenu.
+- Réduction mesurée des espacements, cartes, champs, boutons et icônes sans supprimer de sections.
+- Suppression des animations et déplacements au survol/clic sur ordinateur.
+
+Téléphone et tablette : règles CSS existantes conservées, aucun changement visuel volontaire.
+Logique métier, JavaScript, authentification, Supabase, permissions, calculs et données : inchangés.
+Aucune migration SQL requise.
+Le Service Worker reçoit une nouvelle version de cache pour appliquer les nouveaux fichiers.
